@@ -1,4 +1,6 @@
 // Firebase imports
+
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import { 
     getAuth, 
@@ -26,12 +28,12 @@ import {
 // Firebase configuration
 const firebaseConfig = {
     // Replace with your actual config
-    apiKey: "your-api-key",
-    authDomain: "spnu-app.firebaseapp.com",
-    projectId: "spnu-app",
-    storageBucket: "spnu-app.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "your-app-id"
+    apiKey: "AIzaSyANa0kvCZcmiai6wbsgRWMTkHln09i7PcQ",
+    authDomain: "spnu-nl.firebaseapp.com",
+    projectId: "spnu-nl",
+    storageBucket: "spnu-nl.firebasestorage.app",
+    messagingSenderId: "817817458296",
+    appId: "1:817817458296:web:a5faf87e37c033ef55ff8d"
 };
 
 // Initialize Firebase
