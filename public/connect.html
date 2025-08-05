@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPnu - Socialistische Actie Platform</title>
+    <meta name="description" content="SPnu - Het actieplatform voor SP leden en activisten. Organiseer acties, vind groepen, en maak het verschil!">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔴</text></svg>">
+</head>
+<body>
+    <!-- Header with SP Branding -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-section">
+                <div class="logo">SP<span class="accent">nu</span></div>
+                <div class="tagline">Socialistische Actie Platform</div>
+            </div>
+            
+            <nav class="nav">
+                <button class="nav-btn" data-filter="all">Alle Acties</button>
+                <button class="nav-btn" data-filter="protest">Protesten</button>
+                <button class="nav-btn" data-filter="meeting">Vergaderingen</button>
+                <button class="nav-btn" data-filter="canvassing">Campagne</button>
+                <button class="nav-btn add-btn" id="addEvent">+ Actie Toevoegen</button>
+            </nav>
+            
+            <!-- Auth Section -->
+            <div class="auth-section">
+                <div id="authButtons" class="auth-buttons">
+                    <button class="auth-btn" id="loginBtn">Inloggen</button>
+                    <button class="auth-btn" id="signupBtn">Word Lid</button>
+                </div>
+                <div id="userSection" class="user-section" style="display: none;">
+                    <span>Welkom, <span id="userName" class="user-name"></span></span>
+                    <button class="auth-btn" id="logoutBtn">Uitloggen</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <div class="container">
+            <h1 class="hero-title">Sluit je aan bij Jimmy en de <span class="sp-highlight">SP</span>!</h1>
+            <p class="hero-subtitle">Organiseer acties, vind lokale groepen, en maak het verschil in je buurt</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div id="map" class="map-container"></div>
+        
+        <!-- Mobile Filter Bar -->
+        <div class="mobile-filters">
+            <button class="filter-btn active" data-filter="all">Alles</button>
+            <button class="filter-btn" data-filter="protest">Protesten</button>
+            <button class="filter-btn" data-filter="meeting">Vergaderingen</button>
+            <button class="filter-btn" data-filter="canvassing">Campagne</button>
+        </div>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="loginModal">&times;</span>
+            <h2>SP Leden Login</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email adres" required>
+                <input type="password" id="loginPassword" placeholder="Wachtwoord" required>
+                <button type="submit">Inloggen</button>
+            </form>
+            <p class="modal-switch">Nog geen SP lid? <a href="#" id="switchToSignup">Word hier lid</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="signupModal">&times;</span>
+            <h2>Word SP Lid</h2>
+            <form id="signupForm">
+                <input type="text" id="signupName" placeholder="Voor- en achternaam" required>
+                <input type="email" id="signupEmail" placeholder="Email adres" required>
+                <input type="password" id="signupPassword" placeholder="Wachtwoord (min. 6 karakters)" required>
+                <input type="text" id="signupLocation" placeholder="Stad/Plaats">
+                <input type="text" id="signupPhone" placeholder="Telefoonnummer (optioneel)">
+                <select id="signupBranch">
+                    <option value="">Kies je lokale SP afdeling</option>
+                    <option value="amsterdam">SP Amsterdam</option>
+                    <option value="rotterdam">SP Rotterdam</option>
+                    <option value="den-haag">SP Den Haag</option>
+                    <option value="utrecht">SP Utrecht</option>
+                    <option value="eindhoven">SP Eindhoven</option>
+                    <option value="groningen">SP Groningen</option>
+                    <option value="andere">Andere/Geen voorkeur</option>
+                </select>
+                <button type="submit">Word SP Lid!</button>
+            </form>
+            <p class="modal-switch">Al SP lid? <a href="#" id="switchToLogin">Log hier in</a></p>
+        </div>
+    </div>
+
+    <!-- Add Event Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="eventModal">&times;</span>
+            <h2>Socialistische Actie Organiseren</h2>
+            <form id="eventForm">
+                <input type="text" id="eventTitle" placeholder="Titel van de actie" required>
+                <select id="eventType" required>
+                    <option value="">Type socialistische actie</option>
+                    <option value="protest">Protest/Demonstratie</option>
+                    <option value="meeting">SP Vergadering</option>
+                    <option value="canvassing">Deur-tot-deur campagne</option>
+                    <option value="strike">Staking/Solidariteit</option>
+                    <option value="community">Buurtactie</option>
+                    <option value="education">Politieke educatie</option>
+                </select>
+                <input type="text" id="eventLocation" placeholder="Locatie (bijv. Amsterdam, Dam)" required>
+                <input type="datetime-local" id="eventDate" required>
+                <textarea id="eventDescription" placeholder="Beschrijving: Wat willen we bereiken? Waarom is dit belangrijk voor de werkende klasse?" rows="4"></textarea>
+                <input type="text" id="eventContact" placeholder="Contact voor vragen (email/telefoon)">
+                <select id="eventTarget">
+                    <option value="">Doelgroep (optioneel)</option>
+                    <option value="members">Alleen SP leden</option>
+                    <option value="public">Open voor iedereen</option>
+                    <option value="unions">Vakbondsleden</option>
+                    <option value="students">Studenten</option>
+                </select>
+                <button type="submit">Actie Organiseren!</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+    
+    <!-- External Libraries -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <!-- App Script -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>

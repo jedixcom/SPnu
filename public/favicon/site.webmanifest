@@ -1,0 +1,48 @@
+{
+    "name": "SPnu - Socialistische Actie Platform",
+    "short_name": "SPnu",
+    "description": "Het digitale actieplatform van de Socialistische Partij Nederland",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#e9161d",
+    "background_color": "#ffffff",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "nl",
+    "icons": [
+        {
+            "src": "/favicon/web-app-manifest-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "/favicon/web-app-manifest-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "/favicon/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ],
+    "categories": ["politics", "social", "utilities"],
+    "shortcuts": [
+        {
+            "name": "Bekijk Acties",
+            "short_name": "Acties",
+            "description": "Bekijk alle socialistische acties op de kaart",
+            "url": "/#app",
+            "icons": [{ "src": "/favicon/favicon-96x96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Word SP Lid",
+            "short_name": "Lid Worden",
+            "description": "Word lid van de Socialistische Partij",
+            "url": "https://wordlid.sp.nl/",
+            "icons": [{ "src": "/favicon/favicon-96x96.png", "sizes": "96x96" }]
+        }
+    ]
+}
