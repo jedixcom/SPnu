@@ -1,14 +1,103 @@
-/* Previous CSS + Auth styles */
+/* Official SP Colors from sp.nl */
 :root {
-    --sp-red: #e60000;
-    --sp-dark: #b30000;
-    --sp-light: #ff3333;
-    --dark-gray: #333;
-    --light-gray: #f5f5f5;
-    --white: #ffffff;
+    --sp-red: #e9161d;
+    --sp-red-hover: #c41219;
+    --sp-red-light: #ff3333;
+    --sp-secondary: #ffcc00; /* SP Yellow accent */
+    --sp-dark: #1a1a1a;
+    --sp-gray: #333333;
+    --sp-light-gray: #f5f5f5;
+    --sp-white: #ffffff;
+    --sp-border: #e0e0e0;
 }
 
-/* ... (previous styles) ... */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--sp-white);
+    color: var(--sp-gray);
+    line-height: 1.6;
+}
+
+/* Header matching SP.nl */
+.header {
+    background: var(--sp-white);
+    border-bottom: 2px solid var(--sp-border);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--sp-red);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.logo .accent {
+    color: var(--sp-gray);
+    font-weight: 700;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--sp-gray);
+    font-weight: 600;
+    margin-top: -5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-btn {
+    background: transparent;
+    border: 2px solid var(--sp-red);
+    color: var(--sp-red);
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background: var(--sp-red);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.add-btn {
+    background: var(--sp-red);
+    color: white;
+    font-weight: 900;
+}
+
+.add-btn:hover {
+    background: var(--sp-red-hover);
+    transform: translateY(-1px) scale(1.02);
+}
 
 /* Auth Section */
 .auth-section {
@@ -17,48 +106,215 @@
     gap: 1rem;
 }
 
-.auth-buttons {
-    display: flex;
-    gap: 0.5rem;
-}
-
 .auth-btn {
     background: transparent;
-    border: 2px solid white;
-    color: white;
+    border: 2px solid var(--sp-gray);
+    color: var(--sp-gray);
     padding: 0.5rem 1rem;
-    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s;
-    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    font-size: 0.8rem;
 }
 
 .auth-btn:hover {
-    background: white;
-    color: var(--sp-red);
+    background: var(--sp-gray);
+    color: white;
 }
 
 .user-section {
-    color: white;
     display: flex;
     align-items: center;
     gap: 1rem;
+    color: var(--sp-gray);
 }
 
 .user-name {
-    font-weight: bold;
+    font-weight: 700;
+    color: var(--sp-red);
 }
 
-/* Modal Enhancements */
+/* Hero Section */
+.hero-banner {
+    background: linear-gradient(135deg, var(--sp-red) 0%, var(--sp-red-hover) 100%);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+.sp-highlight {
+    background: var(--sp-secondary);
+    color: var(--sp-dark);
+    padding: 0.2rem 0.5rem;
+    font-weight: 900;
+}
+
+/* Main Content */
+.main {
+    position: relative;
+    height: calc(100vh - 200px);
+    min-height: 500px;
+}
+
+.map-container {
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--sp-border);
+}
+
+/* Mobile Filters - SP Style */
+.mobile-filters {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem;
+    border-top: 2px solid var(--sp-red);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.filter-btn {
+    flex: 1;
+    background: var(--sp-light-gray);
+    border: 2px solid var(--sp-border);
+    padding: 0.75rem;
+    margin: 0 0.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.filter-btn.active {
+    background: var(--sp-red);
+    color: white;
+    border-color: var(--sp-red);
+}
+
+.filter-btn:hover {
+    border-color: var(--sp-red);
+    color: var(--sp-red);
+}
+
+/* Modals - SP Style */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 2.5rem;
+    border: 3px solid var(--sp-red);
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-content h2 {
+    color: var(--sp-red);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.close {
+    color: var(--sp-gray);
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
+
+.close:hover {
+    color: var(--sp-red);
+}
+
+/* Forms - SP Style */
+#loginForm input, #signupForm input, #eventForm input, 
+#loginForm select, #signupForm select, #eventForm select, 
+#loginForm textarea, #signupForm textarea, #eventForm textarea {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 2px solid var(--sp-border);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+#loginForm input:focus, #signupForm input:focus, #eventForm input:focus,
+#loginForm select:focus, #signupForm select:focus, #eventForm select:focus,
+#loginForm textarea:focus, #signupForm textarea:focus, #eventForm textarea:focus {
+    outline: none;
+    border-color: var(--sp-red);
+    box-shadow: 0 0 0 3px rgba(233, 22, 29, 0.1);
+}
+
+#loginForm button, #signupForm button, #eventForm button {
+    width: 100%;
+    background: var(--sp-red);
+    color: white;
+    padding: 1rem;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+#loginForm button:hover, #signupForm button:hover, #eventForm button:hover {
+    background: var(--sp-red-hover);
+    transform: translateY(-2px);
+}
+
 .modal-switch {
     text-align: center;
-    margin-top: 1rem;
-    color: #666;
+    margin-top: 1.5rem;
+    color: var(--sp-gray);
 }
 
 .modal-switch a {
     color: var(--sp-red);
     text-decoration: none;
+    font-weight: 600;
 }
 
 .modal-switch a:hover {
@@ -72,7 +328,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,10 +336,10 @@
 }
 
 .spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid var(--sp-red);
+    width: 60px;
+    height: 60px;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid var(--sp-red);
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -93,27 +349,122 @@
     100% { transform: rotate(360deg); }
 }
 
-/* Responsive Auth */
+/* Map Popup Styles - SP Theme */
+.leaflet-popup-content-wrapper {
+    border: 2px solid var(--sp-red);
+}
+
+.event-popup {
+    min-width: 250px;
+    font-family: inherit;
+}
+
+.event-title {
+    font-weight: 900;
+    color: var(--sp-red);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.event-type {
+    background: var(--sp-red);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+
+.event-details {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+    
+    .mobile-filters {
+        display: flex;
+    }
+    
+    .main {
+        height: calc(100vh - 240px);
+    }
+    
+    .container {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .logo {
+        font-size: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
     .auth-section {
         margin-top: 1rem;
     }
     
-    .auth-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-    }
-    
-    .container {
-        align-items: flex-start;
+    .modal-content {
+        margin: 10% auto;
+        padding: 1.5rem;
     }
 }
 
-/* Event Status Indicators */
-.my-event {
-    background-color: var(--sp-light) !important;
+/* SP-specific UI elements */
+.my-event .leaflet-marker-icon {
+    filter: hue-rotate(60deg) brightness(1.2);
 }
 
 .verified-event {
-    border: 2px solid #28a745;
+    border: 3px solid var(--sp-secondary);
+}
+
+/* Status indicators */
+.event-status {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+.event-status.my-event {
+    background: var(--sp-secondary);
+    color: var(--sp-dark);
+}
+
+.event-status.verified {
+    background: #28a745;
+    color: white;
 }
