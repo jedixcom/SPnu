@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPnu - Socialistische Actie Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">SP<span class="accent">nu</span></h1>
+            <nav class="nav">
+                <button class="nav-btn" data-filter="all">Alles</button>
+                <button class="nav-btn" data-filter="protest">Acties</button>
+                <button class="nav-btn" data-filter="meeting">Vergaderingen</button>
+                <button class="nav-btn add-btn" id="addEvent">+ Toevoegen</button>
+            </nav>
+            
+            <!-- Auth Section -->
+            <div class="auth-section">
+                <div id="authButtons" class="auth-buttons">
+                    <button class="auth-btn" id="loginBtn">Inloggen</button>
+                    <button class="auth-btn" id="signupBtn">Registreren</button>
+                </div>
+                <div id="userSection" class="user-section" style="display: none;">
+                    <span id="userName" class="user-name"></span>
+                    <button class="auth-btn" id="logoutBtn">Uitloggen</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div id="map" class="map-container"></div>
+        
+        <!-- Mobile Filter Bar -->
+        <div class="mobile-filters">
+            <button class="filter-btn active" data-filter="all">Alles</button>
+            <button class="filter-btn" data-filter="protest">Acties</button>
+            <button class="filter-btn" data-filter="meeting">Vergaderingen</button>
+        </div>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="loginModal">&times;</span>
+            <h2>Inloggen</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Wachtwoord" required>
+                <button type="submit">Inloggen</button>
+            </form>
+            <p class="modal-switch">Nog geen account? <a href="#" id="switchToSignup">Registreer hier</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="signupModal">&times;</span>
+            <h2>Registreren</h2>
+            <form id="signupForm">
+                <input type="text" id="signupName" placeholder="Naam" required>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Wachtwoord (min. 6 karakters)" required>
+                <input type="text" id="signupLocation" placeholder="Stad (optioneel)">
+                <button type="submit">Registreren</button>
+            </form>
+            <p class="modal-switch">Al een account? <a href="#" id="switchToLogin">Log hier in</a></p>
+        </div>
+    </div>
+
+    <!-- Add Event Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="eventModal">&times;</span>
+            <h2>Nieuwe Actie Toevoegen</h2>
+            <form id="eventForm">
+                <input type="text" id="eventTitle" placeholder="Titel van de actie" required>
+                <select id="eventType" required>
+                    <option value="">Type actie</option>
+                    <option value="protest">Protest/Demonstratie</option>
+                    <option value="meeting">Vergadering</option>
+                    <option value="canvassing">Campagne voeren</option>
+                    <option value="action">Lokale actie</option>
+                </select>
+                <input type="text" id="eventLocation" placeholder="Locatie (bijv. Amsterdam, Dam)" required>
+                <input type="datetime-local" id="eventDate" required>
+                <textarea id="eventDescription" placeholder="Beschrijving van de actie" rows="3"></textarea>
+                <input type="text" id="eventContact" placeholder="Contact (optioneel)">
+                <button type="submit">Actie Toevoegen</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+    
+    <!-- External Libraries -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <!-- App Script -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
