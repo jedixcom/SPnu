@@ -1347,7 +1347,7 @@ body {
 
 /* Lower the title by about 1/2 cm (12-15px) */
 .title-lowered {
-  margin-top: 10px;
+  margin-top: 4px;
 }
 
 /* Make title bigger with font border/stroke */
@@ -1451,4 +1451,189 @@ body {
     width: 200px;
     height: 200px;
   }
+}
+
+/* Center and style footer legal section */
+.footer-legal-centered {
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Style the copyright text */
+.copyright-text {
+  color: var(--color-gray-400);
+  margin-bottom: var(--space-sm);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* Style the brand signature in red */
+.brand-signature {
+  color: var(--sp-red) !important;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: var(--space-sm);
+  text-align: center;
+}
+
+/* Update footer bottom layout */
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-gray-700);
+  text-align: center;
+  gap: var(--space-md);
+}
+
+/* Center legal links */
+.legal-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-bottom {
+    text-align: center;
+  }
+  
+  .legal-links {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  
+  .brand-signature {
+    font-size: 0.9rem;
+  }
+d
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* Brand, Platform, Movements, Sources */
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  align-items: start;
+}
+
+/* Ensure all footer sections have equal height alignment */
+.footer-section {
+  height: auto;
+}
+
+.footer-section h4 {
+  color: var(--sp-yellow);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  min-height: 24px; /* Consistent header height */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: var(--space-xs);
+  line-height: 1.5;
+}
+
+.footer-section a {
+  color: var(--color-gray-300);
+  text-decoration: none;
+  transition: color var(--transition-normal);
+  display: block;
+  padding: 2px 0;
+}
+
+.footer-section a:hover {
+  color: white;
+}
+
+/* Enhanced footer styles */
+.footer-enhanced h4 {
+  color: var(--sp-red);
+  border-bottom: 2px solid var(--sp-red);
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.footer-enhanced a:hover {
+  color: var(--sp-red);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-lg);
+  }
+  
+  /* Stack the last two columns on medium screens */
+  .footer-section:nth-child(4) {
+    grid-column: 2 / 4;
+    margin-top: var(--space-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+  
+  .footer-section:nth-child(4) {
+    grid-column: auto;
+    margin-top: 0;
+  }
+}
+}
+/* Logo link styling */
+.logo-link {
+  display: inline-block;
+  transition: transform var(--transition-normal);
+  text-decoration: none;
+}
+
+.logo-link:hover {
+  transform: scale(1.05);
+}
+
+.logo-link:focus {
+  outline: 2px solid var(--sp-red);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Ensure the image maintains its properties */
+.logo-link img {
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+/* Style for Actie Starten button with black border */
+.btn-actie-starten {
+  border: 2px solid #000 !important;
+  background: var(--sp-red);
+  color: white;
+  position: relative;
+}
+
+.btn-actie-starten:hover {
+  background: var(--sp-red-hover);
+  border-color: #000 !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-actie-starten:focus {
+  outline: 2px solid var(--sp-yellow);
+  outline-offset: 2px;
+  border-color: #000 !important;
 }

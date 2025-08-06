@@ -413,6 +413,7 @@ body {
     line-height: 1.1;
     margin-bottom: var(--space-lg);
     letter-spacing: -2px;
+    transform: translateY(-8px); /* Move 8px up */
 }
 
 .title-line {
@@ -435,7 +436,8 @@ body {
     font-size: 1.3rem;
     line-height: 1.6;
     margin-bottom: var(--space-xl);
-    opacity: 0.95);
+    opacity: 1;
+    color:#f0f9ff
 }
 
 .hero-features {
@@ -691,7 +693,9 @@ body {
 /* How It Works Section */
 .how-it-works {
     padding: var(--space-3xl) 0;
-    background: white;
+    background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-gray-800) 100%);
+    color: white;
+    text-align: center;
 }
 
 .steps-grid {
@@ -1278,7 +1282,7 @@ body {
 }
 
 .scale-in {
-    opacity: 0;
+    opacity: 0.3;
     transform: scale(0.9);
     transition: all 0.5s ease-out;
 }
@@ -1286,4 +1290,307 @@ body {
 .scale-in.animate {
     opacity: 1;
     transform: scale(1);
+}
+/* Header bottom border */
+.header-bottom-border {
+  border-bottom: 3px solid #000;
+}
+
+/* Hero adjustments */
+.hero-adjusted {
+  margin-top: 80px; /* Adjust based on header height */
+}
+
+.standout-title {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  transform: scale(1.05);
+}
+
+/* White text sections */
+.white-text-section {
+  background-color: #333;
+}
+
+.white-title {
+  color: #fff !important;
+}
+
+.white-subtitle {
+  color: #fff !important;
+}
+
+.white-bold-text {
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+/* Enhanced footer */
+.footer-enhanced {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-top: 3px solid #d63031;
+}
+
+.footer-enhanced h4 {
+  color: #d63031;
+  border-bottom: 2px solid #d63031;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.footer-enhanced a {
+  transition: color 0.3s ease;
+}
+
+.footer-enhanced a:hover {
+  color: #d63031;
+}
+
+/* Lower the title by about 1/2 cm (12-15px) */
+.title-lowered {
+  margin-top: 4px;
+}
+
+/* Make title bigger with font border/stroke */
+.title-bordered {
+  font-size: 2.5em; /* Much bigger text */
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  
+}
+
+/* Alternative sizes */
+.title-bordered-large {
+  font-size: 3em; /* Even bigger */
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+
+}
+
+.title-bordered-xl {
+  font-size: 3.5em; /* Biggest */
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+
+}
+
+/* Fallback for browsers that don't support text-stroke */
+.title-bordered {
+  text-shadow: 
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000,
+    2px 2px 4px rgba(0,0,0,0.5);
+}
+/* Make hero description white and bold */
+.hero-description-white {
+  color: #fff !important;
+  font-weight: bold !important;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255) !important;
+  opacity: 1 !important; /* Override any opacity issues */
+}
+/* Hero Image Styles */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Moving Logo Animation */
+.moving-logo {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+  animation: moveAcrossScreen 8s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+/* Animation keyframes - moves logo across screen */
+@keyframes moveAcrossScreen {
+  0% {
+    transform: translateX(-100px) scale(1);
+  }
+  25% {
+    transform: translateX(50px) scale(1.1);
+  }
+  50% {
+    transform: translateX(0px) scale(1.2);
+  }
+  75% {
+    transform: translateX(-25px) scale(1.1);
+  }
+  100% {
+    transform: translateX(-100px) scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-image {
+    height: 300px;
+  }
+  
+  .moving-logo {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image {
+    height: 200px;
+  }
+  
+  .moving-logo {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Center and style footer legal section */
+.footer-legal-centered {
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Style the copyright text */
+.copyright-text {
+  color: var(--color-gray-400);
+  margin-bottom: var(--space-sm);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* Style the brand signature in red */
+.brand-signature {
+  color: var(--sp-red) !important;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: var(--space-sm);
+  text-align: center;
+}
+
+/* Update footer bottom layout */
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-gray-700);
+  text-align: center;
+  gap: var(--space-md);
+}
+
+/* Center legal links */
+.legal-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-bottom {
+    text-align: center;
+  }
+  
+  .legal-links {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  
+  .brand-signature {
+    font-size: 0.9rem;
+  }
+}
+* Footer grid layout - 4 columns aligned horizontally */
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* Brand, Platform, Movements, Sources */
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  align-items: start;
+}
+
+/* Ensure all footer sections have equal height alignment */
+.footer-section {
+  height: auto;
+}
+
+.footer-section h4 {
+  color: var(--sp-yellow);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  min-height: 24px; /* Consistent header height */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: var(--space-xs);
+  line-height: 1.5;
+}
+
+.footer-section a {
+  color: var(--color-gray-300);
+  text-decoration: none;
+  transition: color var(--transition-normal);
+  display: block;
+  padding: 2px 0;
+}
+
+.footer-section a:hover {
+  color: white;
+}
+
+/* Enhanced footer styles */
+.footer-enhanced h4 {
+  color: var(--sp-red);
+  border-bottom: 2px solid var(--sp-red);
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.footer-enhanced a:hover {
+  color: var(--sp-red);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-lg);
+  }
+  
+  /* Stack the last two columns on medium screens */
+  .footer-section:nth-child(4) {
+    grid-column: 2 / 4;
+    margin-top: var(--space-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+  
+  .footer-section:nth-child(4) {
+    grid-column: auto;
+    margin-top: 0;
+  }
 }
