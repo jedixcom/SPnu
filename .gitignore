@@ -11,7 +11,6 @@ firebase-debug.*.log*
 .firebase/
 
 # Firebase config
-
 # Uncomment this if you'd like others to create their own Firebase project.
 # For a team working on the same Firebase project(s), it is recommended to leave
 # it commented so all members can deploy to the same project(s) in .firebaserc.
@@ -64,6 +63,52 @@ node_modules/
 
 # dotenv environment variables file
 .env
+.env.local
+.env.development
+.env.production
 
 # dataconnect generated files
 .dataconnect
+
+# Build outputs
+dist/
+build/
+public/dist/
+
+# Development files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Testing
+.coverage/
+junit.xml
+test-results/
+
+# Documentation build
+docs/_build/
+docs/.build/
+
+# Keep important files that might look like they should be ignored
+!public/README.md
+!docs/**/*.md
+!CHANGELOG.md
+!CONTRIBUTING.md
+!SECURITY.md
+!LICENSE
