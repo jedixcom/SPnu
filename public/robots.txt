@@ -1,0 +1,78 @@
+# Robots.txt for SPnu! Platform - Socialistische Partij Nederland
+# Last updated: 2025-01-15
+
+User-agent: *
+Allow: /
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Disallow private/admin areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /_/
+Disallow: /firebase-debug.log
+
+# Disallow development files
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /webpack.config.js
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /.env
+Disallow: /.firebaserc
+Disallow: /firebase.json
+
+# Disallow file extensions that shouldn't be indexed
+Disallow: /*.log
+Disallow: /*.txt$
+Disallow: /*.json$
+Disallow: /*.config.*
+Disallow: /*.md$
+
+# Allow important files
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /manifest.json
+Allow: /favicon/
+Allow: /images/
+Allow: /docs/
+
+# Crawl delay (be respectful)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://spnu.nl/sitemap.xml
+
+# Additional sitemaps for dynamic content
+Sitemap: https://spnu.nl/actions-sitemap.xml
+Sitemap: https://spnu.nl/groups-sitemap.xml
+Sitemap: https://spnu.nl/events-sitemap.xml
